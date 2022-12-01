@@ -16,10 +16,10 @@ python run.py \
     --epochs 50 --labels $labels \
     --batch_size 256 --gpu 0 --gamma 2 \
     --model EBSNN_LSTM --segment_len 16 \
-    --embedding_dim 32 \
-    --rnn_dim 32 \
+    --embedding_dim 16 \
+    --rnn_dim 16 \
     --dropout 0.5 \
-    --learning_rate 0.001 \
+    --learning_rate 0.01 \
     --no_bidirectional \
     --log_filename ${output_dir}/plog.log \
     --logging_steps 50 \
