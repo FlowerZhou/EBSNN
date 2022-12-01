@@ -303,7 +303,7 @@ def get_args():
 def main():
 
     args = get_args()
-    args.device = 'cpu'
+    args.device = 'cuda' if torch.cuda.is_available() else 'cpu'
     LABELS = {v: k for k, v in enumerate(args.labels.split(','))}   # FIXME: modify this
     # args.num_classes = len(LABELS)
     args.num_classes = 29   # NOTE: RuntimeError in CUDA is caused by inconsistent classes
