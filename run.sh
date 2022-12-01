@@ -16,8 +16,8 @@ python run.py \
     --epochs 50 --labels $labels \
     --batch_size 256 --gpu 0 --gamma 2 \
     --model EBSNN_LSTM --segment_len 16 \
-    --embedding_dim 8 \
-    --rnn_dim 8 \
+    --embedding_dim 4 \
+    --rnn_dim 4 \
     --dropout 0.5 \
     --learning_rate 0.01 \
     --no_bidirectional \
