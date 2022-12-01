@@ -201,7 +201,7 @@ def evaluate(model, args, test=False):
         e_t = time()
         avg_time += (e_t - s_t)/256
         if idx == 10:
-            print (avg_time)/10
+            print ((avg_time)/10)
 
     total_loss = total_loss / len(eval_dataloader)
     y = np.array(y)
