@@ -224,7 +224,7 @@ def get_args():
     # model arguments
     parser.add_argument(
         '--model', default='EBSNN_LSTM',
-        help='Model name: EBSNN_LSTM or EBSNN_GRU [default: EBSNN_LSTM]'    
+        help='Model name: EBSNN_LSTM or EBSNN_GRU [default: EBSNN_LSTM]')    
     # training arguments
     parser.add_argument(
         '--batch_size', type=int, default=32,
