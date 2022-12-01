@@ -9,7 +9,7 @@ labels+=imdb,TED,douban,amazon,youtube,JD,youku,baidu,google,tieba,taobao,bing
 output_dir=../save/teacher
 
 python run.py \
-    --do_train \
+    --do_eval \
     --data_dir ../data \
     --dataset d1 \
     --output_dir ${output_dir} \
