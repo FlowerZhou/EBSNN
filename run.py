@@ -161,6 +161,7 @@ def evaluate(model, args, test=False):
     y_hat, y = [], []
 
     time_logs = []
+    avg_time = 0
 
     for idx, batch in enumerate(eval_dataloader):
         batch_X, batch_y = batch
@@ -198,7 +199,9 @@ def evaluate(model, args, test=False):
                     y_hat += [int(torch.sum(out1, 0).max(0)[1].tolist()), ]
                 y += [int(batch_y[0].tolist()), ]
         e_t = time()
-        print ((e_t-s_t)/256)
+        avg_time += (e_t - s_t)/256
+        if idx == 10:
+            print (avg_time)/10
 
     total_loss = total_loss / len(eval_dataloader)
     y = np.array(y)
