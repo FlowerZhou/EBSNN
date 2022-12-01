@@ -200,8 +200,8 @@ def evaluate(model, args, test=False):
                 y += [int(batch_y[0].tolist()), ]
         e_t = time()
         avg_time += (e_t - s_t)/256
-        if idx == 10:
-            print ((avg_time)/10)
+        if idx == 100:
+            print ((avg_time)/100)
 
     total_loss = total_loss / len(eval_dataloader)
     y = np.array(y)
