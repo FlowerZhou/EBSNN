@@ -185,6 +185,9 @@ def evaluate(model, args, test=False):
                 y += [int(batch_y[0].tolist()), ]
 
     total_loss = total_loss / len(eval_dataloader)
+    e_t = time()
+    ave_time = (e_t - s_t)/256
+    print (ave_time)
     y = np.array(y)
     y_hat = np.array(y_hat)
     # p_log('DEBUG: y_hat: {} (shape: {})'.format(y_hat, y_hat.shape))
@@ -282,7 +285,8 @@ def get_args():
 def main():
 
     args = get_args()
-    args.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    #args.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    args.device = 'cpu'
     LABELS = {v: k for k, v in enumerate(args.labels.split(','))}   # FIXME: modify this
     # args.num_classes = len(LABELS)
     args.num_classes = 29   # NOTE: RuntimeError in CUDA is caused by inconsistent classes
