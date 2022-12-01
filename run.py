@@ -334,4 +334,4 @@ if __name__ == '__main__':
                         help='embedding dimenstion [default 257]')
     parser.add_argument("--dropout", default=0.5, type=float)
     parser.add_argument("--rnn_dim", default=100, type=int)
-)
+
