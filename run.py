@@ -162,7 +162,6 @@ def evaluate(model, args, test=False):
 
     time_logs = []
 
-
     for idx, batch in enumerate(eval_dataloader):
         batch_X, batch_y = batch
 
@@ -199,9 +198,8 @@ def evaluate(model, args, test=False):
                     y_hat += [int(torch.sum(out1, 0).max(0)[1].tolist()), ]
                 y += [int(batch_y[0].tolist()), ]
         e_t = time()
-
         print ((e_t-s_t)/256)
-        
+
     total_loss = total_loss / len(eval_dataloader)
     y = np.array(y)
     y_hat = np.array(y_hat)
@@ -224,7 +222,12 @@ def get_args():
     # model arguments
     parser.add_argument(
         '--model', default='EBSNN_LSTM',
-        help='Model name: EBSNN_LSTM or EBSNN_GRU [default: EBSNN_LSTM]')    
+        help='Model name: EBSNN_LSTM or EBSNN_GRU [default: EBSNN_LSTM]')
+    parser.add_argument('--embedding_dim', type=int, default=257,
+                        help='embedding dimenstion [default 257]')
+    parser.add_argument("--dropout", default=0.5, type=float)
+    parser.add_argument("--rnn_dim", default=100, type=int)
+    
     # training arguments
     parser.add_argument(
         '--batch_size', type=int, default=32,
@@ -330,8 +333,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    parser.add_argument('--embedding_dim', type=int, default=257,
-                        help='embedding dimenstion [default 257]')
-    parser.add_argument("--dropout", default=0.5, type=float)
-    parser.add_argument("--rnn_dim", default=100, type=int)
-
